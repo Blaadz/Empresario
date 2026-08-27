@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 })
 
     // Countdown Timer
-    const targetDate = new Date("2025-10-11T00:00:00").getTime();
+    const targetDate = new Date("2026-10-09T00:00:00").getTime();
 
     function getTimeSegmentElements(segmentElement) {
       const segmentDisplay = segmentElement.querySelector('.segment-display');
