@@ -124,8 +124,11 @@ section:nth-child(odd) {
 .home-text1 {
   font-size: 45px;
   color: #ac0e49;
-  font-family: "Cormorant Garamond", serif;
+
+  /* Changed from Cormorant Garamond to Montserrat */
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
+
   text-align: center;
   margin-bottom: 10px;
   margin-top: 20px;
@@ -183,7 +186,10 @@ section:nth-child(odd) {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+
+  /* Increased spacing between Days / Hours / Minutes / Seconds */
+  gap: 35px;
+
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
@@ -198,7 +204,10 @@ section:nth-child(odd) {
 
 .time-group {
   display: flex;
-  gap: 0;
+
+  /* Increased spacing inside each time group */
+  gap: 12px;
+
   justify-content: center;
   align-items: center;
 }
@@ -280,13 +289,25 @@ section:nth-child(odd) {
 }
 
 @keyframes flip-top {
-  0% { transform: rotateX(0deg); }
-  50%, 100% { transform: rotateX(-90deg); }
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  50%,
+  100% {
+    transform: rotateX(-90deg);
+  }
 }
 
 @keyframes flip-bottom {
-  0%, 50% { transform: rotateX(90deg); }
-  100% { transform: rotateX(0deg); }
+  0%,
+  50% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 
 /* === MINI NAVBAR === */
@@ -307,15 +328,17 @@ section:nth-child(odd) {
   font-size: 20px;
   transition: all 0.3s ease;
 }
+
 .mini-navbar.sticky {
-  background-color: rgba(0, 0, 0, 0.1); /* darker background when sticky */
+  background-color: rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;             /* full width */
-  border-radius: 0;         /* remove rounded corners */
-  z-index: 999;             /* stay above content */
+  width: 100%;
+  border-radius: 0;
+  z-index: 999;
 }
+
 .mini-navbar a {
   color: white;
   text-decoration: none;
@@ -392,8 +415,13 @@ section:nth-child(odd) {
 }
 
 @keyframes slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* === CATEGORIES GRID === */
@@ -423,10 +451,10 @@ section:nth-child(odd) {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
 }
 
 .category-card {
@@ -441,6 +469,7 @@ section:nth-child(odd) {
   width: 100px;
   height: 100px;
   margin-bottom: 15px;
+  object-fit: contain;
 }
 
 .category-card h3 {
@@ -453,9 +482,25 @@ section:nth-child(odd) {
   transform: translateY(-8px);
   border-color: #ac0e49;
 }
-.study-guide-btn{
-    margin-top: 30px;
+
+.study-guide-btn {
+  margin-top: 30px;
 }
+
+/* Third row: center the two final categories */
+/* They sit under columns 2 and 3 */
+.categories-grid.final-categories {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.categories-grid.final-categories .category-card:first-child {
+  grid-column: 2;
+}
+
+.categories-grid.final-categories .category-card:last-child {
+  grid-column: 3;
+}
+
 /* Divider between compulsory & other categories */
 .categories-divider {
   width: 60%;
@@ -464,24 +509,17 @@ section:nth-child(odd) {
   border-top: 3px solid #ac0e49;
   opacity: 0.8;
 }
+
 /* COP specific */
 .categories-grid.single-center {
   display: flex;
   justify-content: center;
-  margin-top: 40px; /* space above COP */
+  margin-top: 40px;
 }
 
 .categories-grid.single-center .category-card {
-  width: auto;       /* normal width like other cards on desktop */
-  max-width: 500px;  /* keep it consistent */
-}
-
-/* Make COP 100% width only on small screens */
-@media (max-width: 768px) {
-  .categories-grid.single-center .category-card {
-    width: 100%;
-    max-width: none;
-  }
+  width: auto;
+  max-width: 500px;
 }
 
 /* === BUTTONS === */
@@ -560,10 +598,11 @@ section:nth-child(odd) {
   line-height: 1.6;
   color: #ddd;
 }
+
 .about-col.full-width {
   flex: 1 1 100%;
-  max-width: 80%;   /* ✅ keep it narrower */
-  margin: 0 auto 40px auto;  /* center align */
+  max-width: 80%;
+  margin: 0 auto 40px auto;
   text-align: center;
 }
 
@@ -718,7 +757,6 @@ h3 .underline {
   transition: transform 0.3s ease;
   box-sizing: border-box;
 
-  /* ✅ Fix overflow for long text/email */
   word-wrap: break-word;
   overflow-wrap: anywhere;
   white-space: normal;
@@ -765,14 +803,15 @@ h3 .underline {
   background: #ac0e49;
   transform: scale(1.05);
 }
-/* === Form === */
+
+/* === FORM === */
 .form-container {
   position: relative;
   width: 100%;
-  max-width: 800px;  /* keeps it from stretching too wide */
+  max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
-  padding-top: 150%; /* adjusts height ratio */
+  padding-top: 150%;
 }
 
 .form-container iframe {
@@ -783,7 +822,6 @@ h3 .underline {
   height: 100%;
   border: none;
 }
-
 
 /* === END CREDITS === */
 .end {
@@ -813,6 +851,7 @@ h3 .underline {
 
 /* Tablets & Medium Screens */
 @media (max-width: 1024px) {
+
   .mini-navbar {
     font-size: 18px;
     gap: 1.2rem;
@@ -831,10 +870,15 @@ h3 .underline {
   .category-card h3 {
     font-size: 18px;
   }
+
+  .categories-grid {
+    gap: 25px;
+  }
 }
 
 /* Mobile Landscape & Small Tablets */
 @media (max-width: 768px) {
+
   .background {
     background-size: cover;
     background-position: center;
@@ -847,9 +891,11 @@ h3 .underline {
   .emp_logo {
     width: 150px;
   }
-  .main-content{
+
+  .main-content {
     min-height: 85vh;
   }
+
   .home-text1 {
     font-size: 30px;
     padding: 0 15px;
@@ -878,7 +924,11 @@ h3 .underline {
   }
 
   .countdown {
-    gap: 5px;
+    width: 90%;
+
+    /* More breathing room between timer sections */
+    gap: 20px;
+
     padding: 0 10px;
   }
 
@@ -913,7 +963,18 @@ h3 .underline {
   }
 
   .categories-grid {
+    grid-template-columns: 1fr;
     gap: 25px;
+  }
+
+  /* Reset the desktop centering on mobile */
+  .categories-grid.final-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .categories-grid.final-categories .category-card:first-child,
+  .categories-grid.final-categories .category-card:last-child {
+    grid-column: auto;
   }
 
   .category-card img {
@@ -971,18 +1032,20 @@ h3 .underline {
   .icon1 {
     width: 35px;
   }
-  footer, 
-.footer-container, 
-.footer-column, 
-.info-box, 
-.contact-card {
-  max-width: 100%;
-  box-sizing: border-box;
-}
+
+  footer,
+  .footer-container,
+  .footer-column,
+  .info-box,
+  .contact-card {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 /* Mobile Portrait */
 @media (max-width: 480px) {
+
   .background {
     background-size: cover;
     background-position: top;
@@ -1027,7 +1090,12 @@ h3 .underline {
   }
 
   .countdown {
-    gap: 3px;
+    width: 95%;
+
+    /* Keep spacing visible but prevent overflow */
+    gap: 12px;
+
+    padding: 0 5px;
   }
 
   .time-section {
@@ -1068,4 +1136,3 @@ h3 .underline {
     margin-top: 10px;
   }
 }
-
