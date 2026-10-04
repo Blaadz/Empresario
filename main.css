@@ -307,33 +307,111 @@ section:nth-child(odd) {
 /* === MINI NAVBAR === */
 
 .mini-navbar-container {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.mini-navbar {
-    margin-top: 10px;
-    display: inline-flex;
-    justify-content: center;
-    gap: 2rem;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 20px;
-    transition: all 0.3s ease;
-}
-
-.mini-navbar.sticky {
-    background-color: rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    border-radius: 0;
-    z-index: 999;
+    z-index: 9999;
+    pointer-events: none;
 }
 
+.mini-navbar {
+    width: 100%;
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 3rem);
+
+    box-sizing: border-box;
+    padding: 10px 30px;
+
+    background: rgba(8, 8, 8, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(172, 14, 73, 0.35);
+
+    transform: translateY(0);
+    opacity: 1;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease,
+        background 0.3s ease;
+
+    pointer-events: auto;
+}
+
+.mini-navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.mini-navbar::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: #ac0e49;
+    box-shadow: 0 0 12px rgba(172, 14, 73, 0.5);
+}
+
+.mini-navbar a {
+    position: relative;
+
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    padding: 9px 4px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.mini-navbar a::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: 1px;
+
+    width: 0;
+    height: 2px;
+
+    background: #ac0e49;
+
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.mini-navbar a:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.mini-navbar a:hover::after {
+    width: 100%;
+}
+
+.mini-navbar a.active {
+    color: #ffffff;
+}
+
+.mini-navbar a.active::after {
+    width: 100%;
+}
 
 /* === CATEGORIES SLIDER === */
 .slider-container {
