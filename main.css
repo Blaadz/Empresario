@@ -179,44 +179,38 @@ section:nth-child(odd) {
 }
 
 /* === COUNTDOWN TIMER === */
+
 .countdown {
-  margin: 10px auto;
-  width: 60%;
-  max-width: 900px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Increased spacing between Days / Hours / Minutes / Seconds */
-  gap: 35px;
-
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
+    margin: 10px auto;
+    width: min(90%, 900px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(8px, 2vw, 25px);
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 2;
 }
 
 .time-section {
-  flex: 1 1 120px;
-  min-width: 110px;
-  text-align: center;
-  font-size: clamp(14px, 1.8vw, 26px);
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    font-size: clamp(12px, 1.5vw, 20px);
 }
 
 .time-group {
-  display: flex;
-
-  /* Increased spacing inside each time group */
-  gap: 12px;
-
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
 }
 
 .time-segment {
-  width: clamp(120px, 12vw, 150px);
-  font-size: clamp(20px, 7.5vw, 60px);
-  font-weight: 900;
-  display: block;
+    width: clamp(45px, 7vw, 90px);
+    font-size: clamp(24px, 5vw, 55px);
+    font-weight: 900;
+    display: block;
 }
 
 .segment-display {
