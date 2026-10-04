@@ -486,6 +486,20 @@
 
     updateAllSegments();
   </script>
- 
+
+<script>
+window.addEventListener("scroll", function () {
+    const navbar = document.querySelector(".mini-navbar");
+    const container = document.querySelector(".mini-navbar-container");
+
+    const stickyPoint = container.offsetTop;
+
+    if (window.scrollY > stickyPoint) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+});
+</script>
 </body>
 </html>
