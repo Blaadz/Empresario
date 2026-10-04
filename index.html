@@ -126,6 +126,16 @@
 
   <!-- Fixed Background -->
   <div class="background"></div>
+   <!-- Mini Navbar -->
+  <div class="mini-navbar-container">
+    <div class="mini-navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">Info</a>
+      <a href="Categories.html">Categories</a>
+      <a href="registration.html">Register</a>
+      <a href="school-invite.pdf" target="_blank">School Invite</a>
+    </div>
+  </div>
 
   <!-- Main Content -->
   <section class="home" id="home">
@@ -249,16 +259,7 @@
     </div>
   </section>
 
-  <!-- Mini Navbar -->
-  <div class="mini-navbar-container">
-    <div class="mini-navbar">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">Info</a>
-      <a href="Categories.html">Categories</a>
-      <a href="registration.html">Register</a>
-      <a href="school-invite.pdf" target="_blank">School Invite</a>
-    </div>
-  </div>
+ 
 
   <!-- Categories Slider -->
   <section class="categories" data-aos="fade-up" data-aos-delay="200">
@@ -488,17 +489,20 @@
   </script>
 
 <script>
-window.addEventListener("scroll", function () {
-    const navbar = document.querySelector(".mini-navbar");
-    const container = document.querySelector(".mini-navbar-container");
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector(".mini-navbar");
 
-    const stickyPoint = container.offsetTop;
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
 
-    if (window.scrollY > stickyPoint) {
-        navbar.classList.add("sticky");
-    } else {
-        navbar.classList.remove("sticky");
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        navbar.classList.add("hidden");
+    } 
+    else if (currentScrollY < lastScrollY) {
+        navbar.classList.remove("hidden");
     }
+
+    lastScrollY = currentScrollY;
 });
 </script>
 </body>
