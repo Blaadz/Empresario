@@ -898,34 +898,32 @@ h3 .underline {
     gap: 1.5rem;
   }
 
-  .countdown {
-    width: 90%;
+.countdown {
+    width: 94%;
+    gap: 6px;
+    padding: 0 5px;
+    flex-wrap: nowrap;
+}
 
-    /* More breathing room between timer sections */
-    gap: 20px;
+.time-section {
+    flex: 1 1 0;
+    min-width: 0;
+}
 
-    padding: 0 10px;
-  }
+.time-section p {
+    font-size: 10px;
+}
 
-  .time-section {
-    flex: 1 1 80px;
-    min-width: 70px;
-  }
-
-  .time-section p {
-    font-size: 12px;
-  }
-
-  .time-segment {
-    width: clamp(44px, 18vw, 90px);
-    font-size: clamp(28px, 14vw, 72px);
-  }
+.time-segment {
+    width: clamp(35px, 17vw, 70px);
+    font-size: clamp(22px, 10vw, 55px);
+}
 
   .mini-navbar {
     font-size: 16px;
     gap: 0.8rem;
     padding: 8px 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .mini-navbar a {
