@@ -311,51 +311,32 @@ section:nth-child(odd) {
 }
 
 /* === MINI NAVBAR === */
+
 .mini-navbar-container {
-  text-align: center;
-  margin-bottom: 40px;
-  position: relative;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .mini-navbar {
-  margin-top: 10px;
-  display: inline-flex;
-  justify-content: center;
-  gap: 2rem;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 20px;
-  transition: all 0.3s ease;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
 
-.mini-navbar.sticky {
-  background-color: rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-radius: 0;
-  z-index: 999;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 
-.mini-navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transition: background 0.3s, color 0.3s;
-}
+    background: rgba(0, 0, 0, 0.85);
+    padding: 12px 25px;
+    border-radius: 0;
 
-.mini-navbar a:hover {
-  background: #ac0e49;
-  color: white;
-}
+    font-size: 20px;
+    box-sizing: border-box;
 
-.mini-navbar a.active {
-  background: #6b0c4b;
-  color: white;
+    transition: all 0.3s ease;
 }
 
 /* === CATEGORIES SLIDER === */
